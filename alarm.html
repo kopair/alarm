@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>Alarm</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<style type="text/css">
+		.contentOne{
+			margin: 0 auto;
+			width: 90%;
+			margin-top: 60px;
+		}
+		.textsize{
+			text-align: center;
+		}
+		.buttonSize{
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+		.jumbotronSize{
+			width: 90%;
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+		.clockNum{
+			text-align: center;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<!-- 导航栏 -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="container">	
+			<div class="navbar-header">
+				<div class="navbar-brand">Alarm</div>
+			</div> 
+			<div class="navbar-collapse collapse">	   
+				<form class="nav navbar-nav navbar-form" role="search">
+					<div class="form-group">
+				        <input type="text" class="form-control" placeholder="Search">
+				    </div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a>日历</a></li>
+					<li><a>统计</a></li>
+					<li><a>设置</a></li>
+				</ul>
+			</div>
+		  </div>
+		</nav>
+		<!-- 内容部分 -->
+		<div style="margin-bottom: 20px;">
+			<div class="contentOne panel panel-default">
+			  <div class="panel-body">
+			    <div class="textsize">
+			    Welcome to the Alarm
+			    <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">详细内容</a>
+			    <!-- 弹窗 -->
+			    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        番茄时钟使用方法
+				      </div>
+				      <div class="modal-body">
+				      	<p style="text-align: left;">&nbsp;&nbsp;番茄工作法是简单易行的时间管理方法，是由弗朗西斯科·西里洛于1992年创立的一种相对于GTD更微观的时间管理方法。</p>
+						<p style="text-align: left;">&nbsp;&nbsp;使用番茄工作法，选择一个待完成的任务，将番茄时间设为25分钟，专注工作，中途不允许做任何与该任务无关的事，直到番茄时钟响起，然后在纸上画一个X短暂休息一下（5分钟就行），每4个番茄时段多休息一会儿。</p>
+						<p style="text-align: left;">&nbsp;&nbsp;番茄工作法极大地提高了工作的效率，还会有意想不到的成就感。</p>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				</div>
+			  </div>
+			</div>
+			<!-- 添加时钟 -->
+			<div>
+				<!-- 按钮 -->
+				<div class="btn-group-lg" align="center">
+					<button type="button" class="btn btn-info buttonSize" data-toggle="modal" data-target="#tomatoClock" data-whatever="@md">开始一个番茄时钟</button>
+
+					<div class="modal fade" id="tomatoClock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="exampleModalLabel">请设定你的番茄时钟</h4>
+					      </div>
+					      <div class="modal-body">
+					        <form>
+					          <div class="form-group">
+					            <label for="message-text" class="control-label">设定番茄钟的时间：</label>
+					            <p><input type="text" class="form-control" id="time-text">(分钟)</p>
+					          </div>
+					          <div class="form-group">
+					            <label for="message-text" class="control-label">输入在这个番茄钟所要做的事情：</label>
+					            <textarea class="form-control" id="message-text"></textarea>
+					          </div>
+					        </form>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveClock()">保存</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
+				</div>
+				<!-- 事件内容 -->
+				<div id="clickMessage">
+					<div class="jumbotron jumbotronSize">
+					  <table class="table table-hover">
+					  	<thead>
+						  	<tr>
+						  		<th>Select</th>
+						  		<th>序号</th>
+						  		<th>事件名称</th>
+						  		<th>时间</th>
+						  		<th>操作</th>
+						  	</tr>
+						</thead>
+						<tbody id="table-data">
+						  	<tr>
+						  		<td id="selectBox"></td>
+						  		<td id="itemNum"></td>
+						  		<td id="messageText"></td>
+						  		<td id="timeText"></td>
+						  		<td id="buttonType"></td>
+						  	</tr>
+						 </tbody> 	
+					  </table>
+					</div>
+				</div>
+
+				<!-- 事件弹窗内容 -->
+					<div class="modal fade" tabindex="-1" id="gridSystemModal" role="dialog" aria-labelledby="gridSystemModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="numClock"></h4>
+					      </div>
+					      <div class="modal-body">
+					      	<div id="tomatoText"></div>
+					      		<hr>
+					      	<div class="clockNum" id="tomatoTime"></div>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-primary" onclick="stopClock()">暂停</button>
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+			</div>
+		</div>	
+		<!-- 底部 -->
+		<div>
+
+			
+		 </div>
+	</div>
+</body>
+<script type="text/javascript">
+	// 设定番茄钟弹窗
+	$('#exampleModal').on('show.bs.modal', function (event) {
+	  var button = $(event.relatedTarget);
+	  var recipient = button.data('whatever');
+	  var modal = $(this);
+	  modal.find('.modal-title').text('New message to ' + recipient);
+	  modal.find('.modal-body input').val(recipient);
+	});
+
+	// 弹窗保存数据
+	var dataArr = [];
+	var storage = window.localStorage;
+
+	if(storage.getItem("data"))
+	{
+		dataArr=JSON.parse(storage.getItem("data"));
+
+	}else{
+		storage.setItem("data","[]");
+		dataArr=JSON.parse(storage.getItem("data"));
+
+	}
+    var strHtml="";
+	    for (var i=0;i<dataArr.length;i++) {
+	    	var leftTime = dataArr[i].time*60; //秒 
+	  		var hours = parseInt(leftTime / 60 / 60 % 24 , 10); //计算剩余的小时 
+	  		var minutes = parseInt(leftTime  / 60 % 60, 10);//计算剩余的分钟 
+	  		var seconds = parseInt(leftTime % 60, 10);//计算剩余的秒数  
+			hours = checkTime(hours); 
+			minutes = checkTime(minutes); 
+		    seconds = checkTime(seconds); 
+		    var timeClock = hours+':'+minutes+':'+seconds;
+	       strHtml+='<tr>\n' +
+	            '<td id="selectBox"><input type="checkbox"/></td>\n' +
+	            '<td id="itemNum">'+(i+1)+'</td>\n' +
+	            '<td id="messageText">'+dataArr[i].message+'</td>\n' +
+	            '<td id="timeText'+i+'">'+timeClock+'</td>\n' +
+	            '<td id="buttonType"><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#gridSystemModal" onclick="startClock('+leftTime+','+i+')">开始</button>&nbsp;<button id="deleteClock" class="btn btn-default btn-xs" onclick="deleteClock('+i+')">删除</button></td>\n' +
+	            '</tr>'
+	        $("#table-data").html(strHtml);	
+	       
+	    }
+
+    // 点击开始按钮
+    function startClock(time,i){
+    	  var button = $(event.relatedTarget);
+		  var recipient = button.data('whatever');
+		  var modal = $(this);
+		  modal.find('.modal-title').text('New message to ' + recipient);
+		  modal.find('.modal-body input').val(recipient);
+		  $("#tomatoText").text("该时钟要完成的事件："+dataArr[i].message);
+		  $("#numClock").text("第"+(i+1)+"个番茄时钟");
+	    	if(!dataArr[i].isStart)
+	    	{
+
+	    		var fullTime = dataArr[i].time;
+	    		console.log(fullTime)
+	    		dataArr[i].isStart=true;
+				var countdown = setInterval(function(){
+					time --;
+					var hours = checkTime(parseInt(time / 60 / 60 % 24 , 10)); //计算剩余的小时 
+				  	var minutes = checkTime(parseInt(time  / 60 % 60, 10));//计算剩余的分钟 
+				  	var seconds = checkTime(parseInt(time % 60, 10));//计算剩余的秒数 
+				  	$("#tomatoTime").text(hours+":"+minutes+":"+seconds);
+				  	if (time == 0) {
+				  		alert("时间到");
+				  		clearInterval(countdown);
+				  		dataArr[i].time=fullTime;
+				  		dataArr[i].isStart=false;
+				  	} 
+				  	
+				},1000);
+	    	}	
+
+	}
+	// 点击删除按钮
+	function deleteClock(i){
+		dataArr.splice(i,1);
+		var dataOne = JSON.stringify(dataArr);
+		
+		storage.setItem("data",dataOne);
+		console.log(dataArr);
+		window.location.reload();
+
+	}
+	// 点击暂停按钮
+	function stopClock(){
+		
+	}
+
+
+    function checkTime(i){ //将0-9的数字前面加上0，例1变为01 
+		  if(i<10) { 
+		    i = "0" + i; 
+		  } 
+		  return i; 
+	
+	}
+
+    // 保存番茄时钟数据
+	function saveClock(){
+		var clockTime = $('#time-text').val();
+		var clockMessage = $('#message-text').val();
+
+		if(!window.localStorage){
+	            alert("浏览器不支持localstorage");
+	        }else{
+	            
+	            //写入字段
+	            var data = {
+	            	time : clockTime,
+	            	message : clockMessage,
+	            	isStart:false
+	            }
+	            dataArr.push(data);
+	            storage.setItem("data",JSON.stringify(dataArr));
+	        }
+	    // 遍历数据
+        strHtml=""
+	    for (var i=0;i<dataArr.length;i++) {
+	    	var leftTime = dataArr[i].time*60; //秒 
+	  		var hours = parseInt(leftTime / 60 / 60 % 24 , 10); //计算剩余的小时 
+	  		var minutes = parseInt(leftTime  / 60 % 60, 10);//计算剩余的分钟 
+	  		var seconds = parseInt(leftTime % 60, 10);//计算剩余的秒数  
+			hours = checkTime(hours); 
+			minutes = checkTime(minutes); 
+		    seconds = checkTime(seconds); 
+		    var timeClock = hours+':'+minutes+':'+seconds;
+		    strHtml+='<tr>\n' +
+                '<td id="selectBox"><input type="checkbox"/></td>\n' +
+                '<td id="itemNum">'+(i+1)+'</td>\n' +
+                '<td id="messageText">'+dataArr[i].message+'</td>\n' +
+                '<td id="timeText'+i+'">'+timeClock+'</td>\n' +
+                '<td id="buttonType"><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#gridSystemModal" id="gridSystemModalLabel" onclick="startClock('+leftTime+','+i+')">开始</button> &nbsp; <button class="btn btn-default btn-xs" onclick="deleteClock('+i+')">删除</button></td>\n' +
+                '</tr>'
+	    	$("#table-data").html(strHtml);
+
+
+
+	    }
+	}
+
+
+</script>
+</html>
