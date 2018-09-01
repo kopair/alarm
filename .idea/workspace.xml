@@ -1,83 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31f94aab-51dc-4d58-8ef9-fb57bc60c072" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/untitled.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jscsrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis/github_deploy_key.enc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/browserconfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/normalize.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/doc/TOC.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/doc/css.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/doc/extend.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/doc/faq.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/doc/html.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/doc/js.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/doc/misc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/doc/usage.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/humans.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/img/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/plugins.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/vendor/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/vendor/modernizr-3.6.0.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/site.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/tile-wide.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/tile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulpfile.babel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modernizr-config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/browserconfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/TOC.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/css.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/extend.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/faq.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/html.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/js.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/misc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/usage.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/humans.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/plugins.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/site.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile-wide.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/file_content.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/file_existence.js" beforeDir="false" />
-    </list>
+    <list default="true" id="31f94aab-51dc-4d58-8ef9-fb57bc60c072" name="Default" comment="完成了简单的设置闹钟，利用localstorage存储数据" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -91,6 +15,7 @@
     <session id="1481227518">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -105,6 +30,16 @@
           <entry key="HTML" value="2" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="txt" value="29" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="29" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
@@ -113,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/alarm.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+              <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#2258#2265#1" expanded="true" />
@@ -201,12 +136,20 @@
       <option name="presentableId" value="Default" />
       <updated>1525685139043</updated>
       <workItem from="1525685146245" duration="257000" />
-      <workItem from="1533635748425" duration="850000" />
+      <workItem from="1533635748425" duration="1305000" />
     </task>
+    <task id="LOCAL-00001" summary="完成了简单的设置闹钟，利用localstorage存储数据">
+      <created>1533636690542</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1533636690542</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1107000" />
+    <option name="totallyTimeSpent" value="1562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -239,6 +182,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="完成了简单的设置闹钟，利用localstorage存储数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了简单的设置闹钟，利用localstorage存储数据" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -250,7 +197,7 @@
     <entry file="file://$PROJECT_DIR$/alarm.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#2258#2265#1" expanded="true" />

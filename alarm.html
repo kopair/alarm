@@ -24,10 +24,6 @@
 			margin: 0 auto;
 			margin-top: 20px;
 		}
-		.clockNum{
-			text-align: center;
-			font-size: 30px;
-		}
 	</style>
 </head>
 <body>
@@ -44,9 +40,8 @@
 				        <input type="text" class="form-control" placeholder="Search">
 				    </div>
 					<button type="submit" class="btn btn-default">Submit</button>
-				</form>
+					</form>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a>日历</a></li>
 					<li><a>统计</a></li>
 					<li><a>设置</a></li>
 				</ul>
@@ -75,7 +70,7 @@
 				      </div>
 				    </div>
 				  </div>
-				</div>
+				</div>		
 				</div>
 			  </div>
 			</div>
@@ -105,7 +100,7 @@
 					        </form>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveClock()">保存</button>
+					        <button type="button" class="btn btn-primary" id="save">保存</button>
 					      </div>
 					    </div>
 					  </div>
@@ -137,27 +132,6 @@
 					  </table>
 					</div>
 				</div>
-
-				<!-- 事件弹窗内容 -->
-					<div class="modal fade" tabindex="-1" id="gridSystemModal" role="dialog" aria-labelledby="gridSystemModalLabel">
-					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title" id="numClock"></h4>
-					      </div>
-					      <div class="modal-body">
-					      	<div id="tomatoText"></div>
-					      		<hr>
-					      	<div class="clockNum" id="tomatoTime"></div>
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-primary" onclick="stopClock()">暂停</button>
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
 			</div>
 		</div>	
 		<!-- 底部 -->
@@ -167,16 +141,35 @@
 		 </div>
 	</div>
 </body>
+<script src="main.js"></script>
 <script type="text/javascript">
-	// 设定番茄钟弹窗
+	var c=new Clock();
+    //各种操作
+    c.init();
+
+
+    //回调函数其实就是把函数当作参数传给函数
+    function a()
+    {
+    	alert(1)
+    }
+
+    function b(cb)
+    {
+    	cb();
+    	alert(2)
+    }
+    b(a)
+
+</script>
+<!-- <script type="text/javascript">
 	$('#exampleModal').on('show.bs.modal', function (event) {
 	  var button = $(event.relatedTarget);
 	  var recipient = button.data('whatever');
-	  var modal = $(this);
-	  modal.find('.modal-title').text('New message to ' + recipient);
-	  modal.find('.modal-body input').val(recipient);
+	  var modal = $(this)
+	  modal.find('.modal-title').text('New message to ' + recipient)
+	  modal.find('.modal-body input').val(recipient)
 	});
-
 	// 弹窗保存数据
 	var dataArr = [];
 	var storage = window.localStorage;
@@ -191,83 +184,62 @@
 
 	}
     var strHtml="";
-	    for (var i=0;i<dataArr.length;i++) {
-	    	var leftTime = dataArr[i].time*60; //秒 
-	  		var hours = parseInt(leftTime / 60 / 60 % 24 , 10); //计算剩余的小时 
-	  		var minutes = parseInt(leftTime  / 60 % 60, 10);//计算剩余的分钟 
-	  		var seconds = parseInt(leftTime % 60, 10);//计算剩余的秒数  
-			hours = checkTime(hours); 
-			minutes = checkTime(minutes); 
-		    seconds = checkTime(seconds); 
-		    var timeClock = hours+':'+minutes+':'+seconds;
-	       strHtml+='<tr>\n' +
-	            '<td id="selectBox"><input type="checkbox"/></td>\n' +
-	            '<td id="itemNum">'+(i+1)+'</td>\n' +
-	            '<td id="messageText">'+dataArr[i].message+'</td>\n' +
-	            '<td id="timeText'+i+'">'+timeClock+'</td>\n' +
-	            '<td id="buttonType"><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#gridSystemModal" onclick="startClock('+leftTime+','+i+')">开始</button>&nbsp;<button id="deleteClock" class="btn btn-default btn-xs" onclick="deleteClock('+i+')">删除</button></td>\n' +
-	            '</tr>'
-	        $("#table-data").html(strHtml);	
-	       
-	    }
-
+    for (var i=0;i<dataArr.length;i++) {
+    	var leftTime = dataArr[i].time*60; //秒 
+  		var hours = parseInt(leftTime / 60 / 60 % 24 , 10); //计算剩余的小时 
+  		var minutes = parseInt(leftTime  / 60 % 60, 10);//计算剩余的分钟 
+  		var seconds = parseInt(leftTime % 60, 10);//计算剩余的秒数  
+		hours = checkTime(hours); 
+		minutes = checkTime(minutes); 
+	    seconds = checkTime(seconds); 
+	    var timeClock = hours+':'+minutes+':'+seconds;
+       strHtml+='<tr>\n' +
+            '<td id="selectBox"><input type="checkbox"/></td>\n' +
+            '<td id="itemNum">'+(i+1)+'</td>\n' +
+            '<td id="messageText">'+dataArr[i].message+'</td>\n' +
+            '<td id="timeText'+i+'">'+timeClock+'</td>\n' +
+            '<td id="buttonType"><button class="btn btn-danger btn-xs" onclick="startClock('+leftTime+','+i+')">开始</button>&nbsp;<button class="btn btn-default btn-xs">删除</button></td>\n' +
+            '</tr>'
+        $("#table-data").html( strHtml);
+        
+        
+		
+    }
     // 点击开始按钮
     function startClock(time,i){
-    	  var button = $(event.relatedTarget);
-		  var recipient = button.data('whatever');
-		  var modal = $(this);
-		  modal.find('.modal-title').text('New message to ' + recipient);
-		  modal.find('.modal-body input').val(recipient);
-		  $("#tomatoText").text("该时钟要完成的事件："+dataArr[i].message);
-		  $("#numClock").text("第"+(i+1)+"个番茄时钟");
-	    	if(!dataArr[i].isStart)
-	    	{
+    	if(!dataArr[i].isStart)
+    	{
 
-	    		var fullTime = dataArr[i].time;
-	    		console.log(fullTime)
-	    		dataArr[i].isStart=true;
-				var countdown = setInterval(function(){
-					time --;
-					var hours = checkTime(parseInt(time / 60 / 60 % 24 , 10)); //计算剩余的小时 
-				  	var minutes = checkTime(parseInt(time  / 60 % 60, 10));//计算剩余的分钟 
-				  	var seconds = checkTime(parseInt(time % 60, 10));//计算剩余的秒数 
-				  	$("#tomatoTime").text(hours+":"+minutes+":"+seconds);
-				  	if (time == 0) {
-				  		alert("时间到");
-				  		clearInterval(countdown);
-				  		dataArr[i].time=fullTime;
-				  		dataArr[i].isStart=false;
-				  	} 
-				  	
-				},1000);
-	    	}	
+    		var fullTime = dataArr[i].time;
+    		console.log(fullTime)
+    		dataArr[i].isStart=true;
+	        // var clockTime = time*1000;;
+			var countdown = setInterval(function(){
+				time --;
+				var hours = checkTime(parseInt(time / 60 / 60 % 24 , 10)); //计算剩余的小时 
+			  	var minutes = checkTime(parseInt(time  / 60 % 60, 10));//计算剩余的分钟 
+			  	var seconds = checkTime(parseInt(time % 60, 10));//计算剩余的秒数 
+			  	$("#timeText"+i).text(hours+":"+minutes+":"+seconds);
+			  	if (time == 0) {
+			  		alert("时间到");
+			  		clearInterval(countdown);
+			  		dataArr[i].time=fullTime;
+			  		dataArr[i].isStart=false;
+			  	} 
+			  	
+			},1000);
+    	}
+    	
 
 	}
-	// 点击删除按钮
-	function deleteClock(i){
-		dataArr.splice(i,1);
-		var dataOne = JSON.stringify(dataArr);
-		
-		storage.setItem("data",dataOne);
-		console.log(dataArr);
-		window.location.reload();
-
-	}
-	// 点击暂停按钮
-	function stopClock(){
-		
-	}
-
-
     function checkTime(i){ //将0-9的数字前面加上0，例1变为01 
 		  if(i<10) { 
 		    i = "0" + i; 
 		  } 
 		  return i; 
-	
-	}
+		}
 
-    // 保存番茄时钟数据
+    
 	function saveClock(){
 		var clockTime = $('#time-text').val();
 		var clockMessage = $('#message-text').val();
@@ -301,15 +273,11 @@
                 '<td id="itemNum">'+(i+1)+'</td>\n' +
                 '<td id="messageText">'+dataArr[i].message+'</td>\n' +
                 '<td id="timeText'+i+'">'+timeClock+'</td>\n' +
-                '<td id="buttonType"><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#gridSystemModal" id="gridSystemModalLabel" onclick="startClock('+leftTime+','+i+')">开始</button> &nbsp; <button class="btn btn-default btn-xs" onclick="deleteClock('+i+')">删除</button></td>\n' +
+                '<td id="buttonType"><button class="btn btn-danger btn-xs" onclick="startClock('+leftTime+','+i+')">开始</button> &nbsp; <button class="btn btn-default btn-xs">删除</button></td>\n' +
                 '</tr>'
 	    	$("#table-data").html(strHtml);
-
-
-
 	    }
 	}
 
-
-</script>
+</script> -->
 </html>
